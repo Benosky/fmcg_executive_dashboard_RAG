@@ -1,0 +1,12 @@
+pydantic
+fastapi
+fastapi
+langchain_core
+langchain_text_splitters
+langchain_community
+langchain_ollama
+langchain_postgres
+uvicorn
+numpy
+pandas
+sqlalchemy

@@ -1,0 +1,77 @@
+# version: '3.8'
+
+services:
+  # Database Service
+  postgres:
+    image: pgvector/pgvector:pg17
+    container_name: faq_postgres
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: postgres
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql 
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  # Ollama Local Model Server (Stock Engine)
+  ollama:
+    image: ollama/ollama:latest
+    container_name: faq_ollama
+    ports:
+      - "11434:11434"
+    volumes:
+      - ollama_data:/root/.ollama
+    healthcheck:
+      test: ["CMD-SHELL", "ollama --version || exit 1"]
+      interval: 5s
+      timeout: 5s
+      retries: 3
+
+  # # Dedicated Download Worker (Runs only once on initialization)
+  # ollama-pull-models:
+  #   image: ollama/ollama:latest
+  #   container_name: faq_ollama_loader
+  #   volumes:
+  #     - ollama_data:/root/.ollama
+  #   depends_on:
+  #     ollama:
+  #       condition: service_healthy
+  #   entrypoint: /bin/sh
+  #   command:
+  #     - "-c"
+  #     - |
+  #       echo "Connecting to Ollama server..."
+  #       until ollama list >/dev/null 2>&1; do sleep 1; done
+  #       echo "=== Pulling nomic-embed-text ==="
+  #       ollama pull nomic-embed-text
+  #       echo "=== Pulling qwen3:4b ==="
+  #       ollama pull qwen3:4b
+  #       echo "=== All weights pulled successfully ==="
+
+  # FastAPI Web Application Service
+  web:
+    build: .
+    container_name: faq_rag_api
+    ports:
+      - "8000:8000"
+    environment:
+      - HOST=postgres
+      - OLLAMA_HOST=http://ollama:11434
+    depends_on:
+      postgres:
+        condition: service_healthy
+      ollama:
+        condition: service_healthy
+      # ollama-pull-models:
+      #   condition: service_completed_successfully # Safely blocks API boot until files land
+volumes:
+  postgres_data:
+  ollama_data:
+
