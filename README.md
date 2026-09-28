@@ -4,7 +4,7 @@ In this project I set out to build a fully localized Retrieval-Augmented Generat
 
 
 ## YouTube Quick Demo
-You can watch the demo here on 
+You can watch the brief demo here on [YouTube](https://youtu.be/ZifRJ-pLrI8). 
 
 
 ## Pgvector Documentation
