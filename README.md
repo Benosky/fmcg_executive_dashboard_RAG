@@ -225,10 +225,11 @@ See `main.py`
 
 See `main.py`.
 
+
 ### 7. Test the endpoint to ensure it is working as expected.
 
-![Alt text]("RAG_Query.png")
+![RAG Query Diagram]("RAG_Query.png")
 
-![Alt text]("RAG_Response.png")
+![RAG Response Diagram]("RAG_Response.png")
 
 
