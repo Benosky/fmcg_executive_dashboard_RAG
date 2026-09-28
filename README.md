@@ -4,7 +4,7 @@ In this project I set out to build a fully localized Retrieval-Augmented Generat
 
 
 ## YouTube Quick Demo
-You can watch the full tutorial here on [YouTube](https://youtu.be).
+You can watch the demo here on 
 
 
 ## Pgvector Documentation
@@ -37,7 +37,9 @@ Here are five key reasons why companies prefer self-hosted RAG systems approach:
 Using PostgreSQL with pgvector simplifies your Retrieval-Augmented Generation (RAG) architecture by keeping vector data and application records inside a single system:
 
 **- Single Source of Truth:** Store your text chunks, metadata, and vector embeddings together in one table.
+
 **- Familiar SQL:** Run standard joins, filters, and keyword searches alongside vector similarity queries.
+
 **- Lower Operations Cost:** Avoid setting up, paying for, and maintaining a separate vector database.
 
 
