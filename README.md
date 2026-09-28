@@ -228,11 +228,6 @@ See `main.py`.
 
 ### 7. Test the endpoint to ensure it is working as expected.
 
-![RAG Query Diagram]("./RAG_Query.png")
-
-![RAG Response Diagram]("./RAG_Response.png")
-
-
 <img width="771" height="514" alt="RAG_Query" src="https://github.com/user-attachments/assets/805eb07c-db9c-4453-b795-440c1b4b7ba7" />
 <img width="712" height="454" alt="RAG_Response" src="https://github.com/user-attachments/assets/e148afe5-40bd-4e1a-abca-c1f777d19ed9" />
 
