@@ -228,8 +228,8 @@ See `main.py`.
 
 ### 7. Test the endpoint to ensure it is working as expected.
 
-![RAG Query Diagram]("RAG_Query.png")
+![RAG Query Diagram]("./RAG_Query.png")
 
-![RAG Response Diagram]("RAG_Response.png")
+![RAG Response Diagram]("./RAG_Response.png")
 
 
