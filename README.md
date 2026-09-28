@@ -227,8 +227,8 @@ See `main.py`.
 
 ### 7. Test the endpoint to ensure it is working as expected.
 
-![Alt text]("RAG Query")
+![Alt text]("RAG_Query.png")
 
-![Alt text]("RAG Response")
+![Alt text]("RAG_Response.png")
 
 
